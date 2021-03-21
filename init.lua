@@ -14,14 +14,25 @@ end
 local server_1_name = "Example1"
 local server_1_img = "example1.png"
 
-local server_2_name = "Example2"
-local server_2_img = "example2.png"
+if n_servers == 2 then
+	local server_2_name = "Example2"
+	local server_2_img = "example2.png"
+elseif n_servers == 3 then
+	local server_2_name = "Example2"
+	local server_2_img = "example2.png"
 
-local server_3_name = "Example3"
-local server_3_img = "example3.png"
+	local server_3_name = "Example3"
+	local server_3_img = "example3.png"
+elseif n_servers == 4 then
+	local server_2_name = "Example2"
+	local server_2_img = "example2.png"
 
-local server_4_name = "Example4"
-local server_4_img = "example4.png"
+	local server_3_name = "Example3"
+	local server_3_img = "example3.png"
+
+	local server_4_name = "Example4"
+	local server_4_img = "example4.png"
+end
 
 
 multiserver_compass.fs = "size[" .. fs_size .. "]" ..

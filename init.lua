@@ -1,6 +1,10 @@
 local multiserver_compass = {}
 
-multiserver_compass.fs
+local server_1_name = "Example"
+local server_1_img = "example.png"
+
+multiserver_compass.fs = "size[4,4]" ..
+"image_button[1,1;1,1;" .. server_1_img";".. server_1_name ..";" .. server_1_name .. "]"
 
 minetest.register_craftitem("multiserver_compass:compass", {
 	description = "Multiserver compass",

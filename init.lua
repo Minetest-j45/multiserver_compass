@@ -42,6 +42,15 @@ minetest.register_craftitem("multiserver_compass:compass", {
 
 minetest.register_on_player_receive_fields(function(player, formname, fields)
 	if formname == "multiserver_compass:redirect" then -- This is your form name
-		print("Player "..player:get_player_name().." submitted fields "..dump(fields))
+		local pname = player:get_player_name()
+		if fields.example1 then
+			multiserver.redirect(pname, "Example1")
+		elseif fields.example2 then
+			multiserver.redirect(pname, "Example2")
+		elseif fields.example3 then
+			multiserver.redirect(pname, "Example3")
+		elseif fields.example4 then
+			multiserver.redirect(pname, "Example4")
+		end
 	end
 end)

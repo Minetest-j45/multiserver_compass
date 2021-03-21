@@ -25,11 +25,18 @@ local server_4_img = "example4.png"
 
 
 multiserver_compass.fs = "size[" .. fs_size .. "]" ..
-"image_button[1,1;1,1;" .. server_1_img";".. server_1_name ..";" .. server_1_name .. "]" ..
-"image_button[1,1;1,2;" .. server_2_img";".. server_2_name ..";" .. server_2_name .. "]" ..
-"image_button[1,1;2,1;" .. server_3_img";".. server_3_name ..";" .. server_3_name .. "]" ..
-"image_button[1,1;2,2;" .. server_4_img";".. server_4_name ..";" .. server_4_name .. "]" ..
+"image_button[1,1;1,1;" .. server_1_img";".. server_1_name ..";" .. server_1_name .. "]"
 
+if n_servers == 2 then
+	multiserver_compass.fs = multiserver_compass.fs .. "image_button[1,1;1,2;" .. server_2_img";".. server_2_name ..";" .. server_2_name .. "]"
+elseif n_servers == 3 then
+	multiserver_compass.fs = multiserver_compass.fs .. "image_button[1,1;1,2;" .. server_2_img";".. server_2_name ..";" .. server_2_name .. "]" ..
+	"image_button[1,1;2,1;" .. server_3_img";".. server_3_name ..";" .. server_3_name .. "]"
+elseif n_servers == 4 then
+	multiserver_compass.fs = multiserver_compass.fs .. "image_button[1,1;1,2;" .. server_2_img";".. server_2_name ..";" .. server_2_name .. "]" ..
+	"image_button[1,1;2,1;" .. server_3_img";".. server_3_name ..";" .. server_3_name .. "]" ..
+	"image_button[1,1;2,2;" .. server_4_img";".. server_4_name ..";" .. server_4_name .. "]"
+end
 
 minetest.register_craftitem("multiserver_compass:compass", {
 	description = "Multiserver compass",

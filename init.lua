@@ -52,12 +52,25 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
 		local pname = player:get_player_name()
 		if fields.example1 then
 			multiserver.redirect(pname, "Example1")
-		elseif fields.example2 then
-			multiserver.redirect(pname, "Example2")
-		elseif fields.example3 then
-			multiserver.redirect(pname, "Example3")
-		elseif fields.example4 then
-			multiserver.redirect(pname, "Example4")
+		end
+		if n_servers == 2 then
+			if fields.example2 then
+				multiserver.redirect(pname, "Example2")
+			end
+		elseif n_servers == 3 then
+			if fields.example2 then
+				multiserver.redirect(pname, "Example2")
+			elseif fields.example3 then
+				multiserver.redirect(pname, "Example3")
+			end
+		elseif n_servers == 4 then
+			if fields.example2 then
+				multiserver.redirect(pname, "Example2")
+			elseif fields.example3 then
+				multiserver.redirect(pname, "Example3")
+			elseif fields.example4 then
+				multiserver.redirect(pname, "Example4")
+			end
 		end
 	end
 end)

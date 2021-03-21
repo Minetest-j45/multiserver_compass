@@ -1,5 +1,16 @@
 local multiserver_compass = {}
 
+local n_servers = 4--default, max is 4
+
+local fs_size
+if n_servers == 1 then
+	fs_size = "1,1"
+elseif n_servers == 2 then
+	fs_size = "1,2"
+elseif n_servers == 3 or n_servers == 4 then
+	fs_size = "2,2"
+end
+
 local server_1_name = "Example1"
 local server_1_img = "example1.png"
 
@@ -13,7 +24,7 @@ local server_4_name = "Example4"
 local server_4_img = "example4.png"
 
 
-multiserver_compass.fs = "size[2,2]" ..
+multiserver_compass.fs = "size[" .. fs_size .. "]" ..
 "image_button[1,1;1,1;" .. server_1_img";".. server_1_name ..";" .. server_1_name .. "]" ..
 "image_button[1,1;1,2;" .. server_2_img";".. server_2_name ..";" .. server_2_name .. "]" ..
 "image_button[1,1;2,1;" .. server_3_img";".. server_3_name ..";" .. server_3_name .. "]" ..

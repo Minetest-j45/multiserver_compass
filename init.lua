@@ -54,7 +54,7 @@ minetest.register_craftitem("multiserver_compass:compass", {
 	inventory_image = "compass.jpg",
  
 	on_use = function(itemstack, user, pointed_thing)
-		minetest.show_formspec(user:get_player_name, "multiserver_compass:redirect", multiserver_compass.fs)
+		minetest.show_formspec(user:get_player_name(), "multiserver_compass:redirect", multiserver_compass.fs)
 	end,
 })
 
